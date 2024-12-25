@@ -1,4 +1,4 @@
-import { GalleryScreen } from "./GalleryScreen"
+import { GalleryScreen } from "../GalleryScreen"
 export const Home = (): JSX.Element => {
 
     return (
