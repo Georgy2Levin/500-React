@@ -1,9 +1,13 @@
 import { useState } from "react"
-import { PlaceFotosType } from "../../model/PlaceFotos"
+import { PlaceNameFotosType } from "../../model/PlaceFotos"
 import { GalleryScreen } from "../GalleryScreen"
 import { AllGalleries } from "../AllGalleries"
 
-export const GalleriesPage: React.FC<PlaceFotosType[]> = (placesFotos) => {
+type Props = {
+    placesFotos: PlaceNameFotosType[];
+}
+
+export const GalleriesPage: React.FC<Props> = ({placesFotos}) => {
     const [currentFoto, setCurrentFoto] = useState<string>();
 
     return (
