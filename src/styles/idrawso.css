@@ -129,7 +129,8 @@ footer {
        
     }
     .details-image { 
-        max-height: 50vh;
+        width: 533px;
+        /* max-height: 50vh; */
         width: 100%;
     }
     .button-list-buttons-div {
@@ -155,3 +156,9 @@ footer {
         border-radius: 4px;
     }
 }
+@media (min-width: 900px){
+    .details-image {
+        width: 533px;
+    }
+    
+}    

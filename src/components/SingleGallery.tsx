@@ -19,7 +19,7 @@ export const SingleGallery: React.FC<Props> = ({ placeName, fotos, setCurrentFot
         const res = fotos.map(n => {
             let fotoExt = `${n}.jpg`;
             let fotoFullPath = `${prefix}${fotoExt}`;
-            return <img src={`${sPrefix}${fotoExt}`} alt={placeName}
+            return <img src={`${sPrefix}${fotoExt}`} alt={placeName} key={n}
                         className="miniatures" onClick={() => setFoto(fotoFullPath)} />
         })
         return res;

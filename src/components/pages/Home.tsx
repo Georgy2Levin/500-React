@@ -12,16 +12,13 @@ export const Home = ({ fotos }: Props): JSX.Element => {
 
     function getRandomFoto() {
         const randomNumber = Math.floor(Math.random() * length);
-        console.log("randomNumber: ", randomNumber);
         const randomName = fotos[randomNumber];
-        console.log("randomName: ", randomName);
         setCurrentFoto(`${dir500}${randomName}.jpg`);
     }
 
     useEffect(() => {
         if (length === 0) return;
         setTimeout(getRandomFoto, 3000);
-        console.log("currentFoto2 ", currentFoto);
     }, [fotos, currentFoto]);
 
     return (
