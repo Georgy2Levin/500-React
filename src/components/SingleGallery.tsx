@@ -1,26 +1,40 @@
-import { PlaceFotosType } from "../model/PlacesFotos"
+import { PlaceFotosType } from "../model/PlaceFotos"
+import config from "./config/common-config.json"
 
-const prefix = '/assets/500/';
-const sPrefix = '/assets/500s/';
+const prefix = config.dir500;
+const sPrefix = config.dir500s;
 
-export const SingleGallery: React.FC<PlaceFotosType> = ({ place, fotos }) => {
+type Props = PlaceFotosType & {
+    setCurrentFoto: (name: string) => void;
+}
 
-    function getMiniatures() {
+export const SingleGallery: React.FC<Props> = ({ place, fotos, setCurrentFoto }) => {
 
-        const res = fotos.map(n => {
-            let placeExt = `${n}.jpg`;
-            return `<img src="${sPrefix}${placeExt}" alt="${place}" class="miniatures" detail-img-src="${prefix}${placeExt}">`
-        })
-        return res.join('');
+    function setFoto(name: string) {
+        setCurrentFoto(name);
     }
 
-    function fillSection( ) {
-        return `<div class="span-section"><span class="span-title">${place}</span></div>${getMiniatures()}`
+    function getMiniatures(): JSX.Element[] {
+
+        const res = fotos.map(n => {
+            let fotoExt = `${n}.jpg`;
+            let fotoFullPath = `${prefix}${fotoExt}`;
+            return <img src={`${sPrefix}${fotoExt}`} alt={place}
+                        className="miniatures" onClick={() => setFoto(fotoFullPath)} />
+        })
+        return res;
+    }
+
+    function fillSection(): JSX.Element {
+        return <>
+            <div className="span-section"><span className="span-title">${place}</span></div>
+            {getMiniatures()}
+        </>
     }
 
     return (
         <>
-            {fillSection() }
+            {fillSection()}
         </>
     )
 }

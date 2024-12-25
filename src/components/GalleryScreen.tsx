@@ -3,10 +3,10 @@ import ImageSearchOutlinedIcon from '@mui/icons-material/ImageSearchOutlined';
 import ImageNotSupportedOutlinedIcon from '@mui/icons-material/ImageNotSupportedOutlined';
 
 type Props = {
-    foto_name: string;
+    foto_full_path: string;
 }
 
-export const GalleryScreen: React.FC<Props> = (foto_name) => {
+export const GalleryScreen: React.FC<Props> = ({foto_full_path}) => {
 
     const [isVisible, setIsVisible] = useState<boolean>(true);
 
@@ -19,7 +19,7 @@ export const GalleryScreen: React.FC<Props> = (foto_name) => {
             {isVisible ?
                 <>
                     <ImageNotSupportedOutlinedIcon className="button-close" onClick={() => showDetails(false)} />
-                    <img src={`/assets/500/${foto_name}.jpg`} className="details-image" />
+                    <img src={foto_full_path} className="details-image" />
                 </> :
                 <ImageSearchOutlinedIcon onClick={() => showDetails(true)} />}
         </div>
