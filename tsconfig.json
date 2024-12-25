@@ -21,7 +21,8 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "config/*": ["config/*"]
+      "config/*": ["config/*"],
+      "components/model/*": ["components/model/*"]
     }
   },
   "include": [

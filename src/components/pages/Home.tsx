@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
-import { PlaceKeyPlaceNameType } from "../../model/PlaceFotos"
 import { GalleryScreen } from "../GalleryScreen"
 import config from 'config/common-config.json'
 
 type Props = {
-   fotos: string[];
+    fotos: string[];
 }
-export const Home = ({fotos}: Props): JSX.Element => {
+export const Home = ({ fotos }: Props): JSX.Element => {
     const dir500 = config.dir500;
     const length = fotos.length;
     const [currentFoto, setCurrentFoto] = useState<string>(`${dir500}224.jpg`);
 
     function getRandomFoto() {
-        const randomNumber = Math.floor(Math.random()*(length + 1));
+        const randomNumber = Math.floor(Math.random() * length);
+        console.log("randomNumber: ", randomNumber);
         const randomName = fotos[randomNumber];
+        console.log("randomName: ", randomName);
         setCurrentFoto(`${dir500}${randomName}.jpg`);
     }
 
-    setInterval(getRandomFoto, 3000);
+    useEffect(() => {
+        if (length === 0) return;
+        setTimeout(getRandomFoto, 3000);
+        console.log("currentFoto2 ", currentFoto);
+    }, [fotos, currentFoto]);
 
     return (
         <>

@@ -1,12 +1,12 @@
 import { ReactNode, useEffect, useState } from 'react';
 import './styles/idrawso.css';
-import { PlaceNameFotosType, PlaceKeyPlaceNameType, PlaceKeyPlaceNameFotosType } from './model/PlaceFotos';
+import { PlaceNameFotosType, PlaceKeyPlaceNameType, PlaceKeyPlaceNameFotosType } from 'model/PlaceFotos';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GalleryPage } from './components/pages/GalleryPage';
 import { Layout } from './components/navigators/Layout';
 import { Home } from './components/pages/Home';
 import { GalleriesPage } from './components/pages/GalleriesPage';
-import config from './config/common-config.json'
+import config from 'config/common-config.json'
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
           collectorPlacesFotos.push({ placeName: name, fotos });
           collectorKeysNamesFotos.push({ placeKey: key, placeName: name, fotos });
           collectorKeysNames.push({ placeKey: key, placeName: name });
-          collectorFotos.push(fotos);
+          collectorFotos.push(...fotos);
         }
 
         setPlacesNamesFotos(collectorPlacesFotos);

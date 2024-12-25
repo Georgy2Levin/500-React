@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { PlaceNameFotosType } from "../../model/PlaceFotos"
+import { PlaceNameFotosType } from "model/PlaceFotos"
 import { GalleryScreen } from "../GalleryScreen"
 import { AllGalleries } from "../AllGalleries"
 

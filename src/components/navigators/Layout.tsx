@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
-import { PlaceKeyPlaceNameType } from "../../model/PlaceFotos"
+import { PlaceKeyPlaceNameType } from "model/PlaceFotos"
 import { Drawer, List, ListItem } from "@mui/material";
 import { ReactNode, useState } from "react";
 import ArtTrackIcon from '@mui/icons-material/ArtTrack';

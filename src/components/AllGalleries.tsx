@@ -1,4 +1,4 @@
-import { PlaceNameFotosType } from "../model/PlaceFotos"
+import { PlaceNameFotosType } from "model/PlaceFotos"
 import { SingleGallery } from "./SingleGallery"
 
 type Props = {

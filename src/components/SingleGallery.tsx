@@ -1,4 +1,4 @@
-import { PlaceNameFotosType } from "../model/PlaceFotos"
+import { PlaceNameFotosType } from "model/PlaceFotos"
 import config from "config/common-config.json"
 
 const prefix = config.dir500;
