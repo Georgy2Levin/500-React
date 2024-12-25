@@ -1,5 +1,5 @@
 import { PlaceNameFotosType } from "../model/PlaceFotos"
-import config from "../config/common-config.json"
+import config from "config/common-config.json"
 
 const prefix = config.dir500;
 const sPrefix = config.dir500s;

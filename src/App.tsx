@@ -13,7 +13,9 @@ function App() {
   const [placesNamesFotos, setPlacesNamesFotos] = useState<PlaceNameFotosType[]>([]);
   const [keysNamesFotos, setKeysNamesFotos] = useState<PlaceKeyPlaceNameFotosType[]>([]);
   const [placesKeysPlacesNames, setPlacesKeysPlacesNames] = useState<PlaceKeyPlaceNameType[]>([]);
+  const [fotos, setFotos] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
+  
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -27,6 +29,7 @@ function App() {
         let collectorPlacesFotos: PlaceNameFotosType[] = [];
         let collectorKeysNamesFotos: PlaceKeyPlaceNameFotosType[] = [];
         let collectorKeysNames: PlaceKeyPlaceNameType[] = [];
+        let collectorFotos: string[] = [];        
 
         for (const key in awaitJson) {
           const name = key.replace("-s-", "'s-").replace(/-/g, " ");
@@ -34,11 +37,13 @@ function App() {
           collectorPlacesFotos.push({ placeName: name, fotos });
           collectorKeysNamesFotos.push({ placeKey: key, placeName: name, fotos });
           collectorKeysNames.push({ placeKey: key, placeName: name });
+          collectorFotos.push(fotos);
         }
 
         setPlacesNamesFotos(collectorPlacesFotos);
         setKeysNamesFotos(collectorKeysNamesFotos);
         setPlacesKeysPlacesNames(collectorKeysNames);
+        setFotos(collectorFotos);
 
       } catch (e: any) {
         setError(e.toString());
@@ -52,7 +57,6 @@ function App() {
       <Route key={placeKey} path={placeKey}
         element={<GalleryPage placeName={placeName} fotos={fotos} />} />
     ))
-
   }
 
   return (
@@ -61,7 +65,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Layout placesKeysPlacesNames={placesKeysPlacesNames} />}>
-              <Route index element={<Home />} />
+              <Route index element={<Home fotos={fotos} />} />
               {getRoutes()}
               <Route path='all' element={<GalleriesPage placesFotos={placesNamesFotos} />} />
             </Route>
