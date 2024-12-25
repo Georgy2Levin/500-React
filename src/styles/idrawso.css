@@ -1,6 +1,6 @@
 @font-face {
     font-family: sofia;
-    src: url(/styles/fonts/SofiaSansCondensed-Regular.ttf);
+    src: url('../../public/fonts/SofiaSansCondensed-Regular.ttf');
 }
 html, body {
     font-family: sofia;

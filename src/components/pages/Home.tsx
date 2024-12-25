@@ -3,7 +3,7 @@ export const Home = (): JSX.Element => {
 
     return (
         <>
-            <GalleryScreen foto_full_path="/assets/224.jpg" />
+            <GalleryScreen foto_full_path="/assets/500/224.jpg" />
             <div className="about">
                 <span className="about-span">
                     I had the telephoto lens <i>Samyang 500mm f/6.3 Mirror</i> for several years.<br />

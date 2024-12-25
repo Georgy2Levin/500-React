@@ -6,32 +6,42 @@ import { GalleryPage } from './components/pages/GalleryPage';
 import { Layout } from './components/navigators/Layout';
 import { Home } from './components/pages/Home';
 import { GalleriesPage } from './components/pages/GalleriesPage';
+import config from './config/common-config.json'
+
 
 function App() {
   const [placesNamesFotos, setPlacesNamesFotos] = useState<PlaceNameFotosType[]>([]);
   const [keysNamesFotos, setKeysNamesFotos] = useState<PlaceKeyPlaceNameFotosType[]>([]);
+  const [placesKeysPlacesNames, setPlacesKeysPlacesNames] = useState<PlaceKeyPlaceNameType[]>([]);
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
     const fetchContent = async () => {
+      const fotos_json = config.fotos_json;
       try {
-        const awaitFetch = await fetch("/assets/fotos.json");
+        const awaitFetch = await fetch(fotos_json);
+        if (!awaitFetch.ok) {
+          throw new Error(`HTTP error! status: ${awaitFetch.status}`);
+        }
         const awaitJson = await awaitFetch.json();
         let collectorPlacesFotos: PlaceNameFotosType[] = [];
         let collectorKeysNamesFotos: PlaceKeyPlaceNameFotosType[] = [];
+        let collectorKeysNames: PlaceKeyPlaceNameType[] = [];
 
         for (const key in awaitJson) {
-          const name = key.replace("-s-", "&#10076;s-").replace(/-/g, " ");
+          const name = key.replace("-s-", "'s-").replace(/-/g, " ");
           const fotos = awaitJson[key];
           collectorPlacesFotos.push({ placeName: name, fotos });
-
           collectorKeysNamesFotos.push({ placeKey: key, placeName: name, fotos });
+          collectorKeysNames.push({ placeKey: key, placeName: name });
         }
 
         setPlacesNamesFotos(collectorPlacesFotos);
         setKeysNamesFotos(collectorKeysNamesFotos);
+        setPlacesKeysPlacesNames(collectorKeysNames);
+
       } catch (e: any) {
-        setError(e.txt());
+        setError(e.toString());
       }
     };
     fetchContent();
@@ -50,7 +60,7 @@ function App() {
       {error ? <div className='error-class'>{error}</div> :
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Layout />}>
+            <Route path='/' element={<Layout placesKeysPlacesNames={placesKeysPlacesNames} />}>
               <Route index element={<Home />} />
               {getRoutes()}
               <Route path='all' element={<GalleriesPage placesFotos={placesNamesFotos} />} />

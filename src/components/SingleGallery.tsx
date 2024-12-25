@@ -1,14 +1,14 @@
-import { PlaceFotosType } from "../model/PlaceFotos"
-import config from "./config/common-config.json"
+import { PlaceNameFotosType } from "../model/PlaceFotos"
+import config from "../config/common-config.json"
 
 const prefix = config.dir500;
 const sPrefix = config.dir500s;
 
-type Props = PlaceFotosType & {
+type Props = PlaceNameFotosType & {
     setCurrentFoto: (name: string) => void;
 }
 
-export const SingleGallery: React.FC<Props> = ({ place, fotos, setCurrentFoto }) => {
+export const SingleGallery: React.FC<Props> = ({ placeName, fotos, setCurrentFoto }) => {
 
     function setFoto(name: string) {
         setCurrentFoto(name);
@@ -19,7 +19,7 @@ export const SingleGallery: React.FC<Props> = ({ place, fotos, setCurrentFoto })
         const res = fotos.map(n => {
             let fotoExt = `${n}.jpg`;
             let fotoFullPath = `${prefix}${fotoExt}`;
-            return <img src={`${sPrefix}${fotoExt}`} alt={place}
+            return <img src={`${sPrefix}${fotoExt}`} alt={placeName}
                         className="miniatures" onClick={() => setFoto(fotoFullPath)} />
         })
         return res;
@@ -27,7 +27,7 @@ export const SingleGallery: React.FC<Props> = ({ place, fotos, setCurrentFoto })
 
     function fillSection(): JSX.Element {
         return <>
-            <div className="span-section"><span className="span-title">${place}</span></div>
+            <div className="span-section"><span className="span-title">{placeName}</span></div>
             {getMiniatures()}
         </>
     }
