@@ -10,7 +10,7 @@ type Props = {
 
 export const Layout: React.FC<Props> = ({ placesKeysPlacesNames }) => {
 
-    const [flOpen, setFlOpen] = useState<boolean>(true)
+    const [flOpen, setFlOpen] = useState<boolean>(false)
 
     function getListItem(): ReactNode {
         return placesKeysPlacesNames.map(({ placeKey, placeName }) => (

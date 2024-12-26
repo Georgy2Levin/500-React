@@ -1,0 +1,27 @@
+@font-face {
+    font-family: sofia;
+    src: url('../fonts/SofiaSansCondensed-Regular.ttf');
+}
+html, body {
+    font-family: sofia;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color:beige;
+    margin: 0px;
+}
+.logo {
+    font-size: 1.5em;
+    color: lightblue;
+    background-color: darkslateblue;
+    display: block;
+    text-align: center;
+}
+footer {
+    color:  orchid;
+    background-color: darkslateblue;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;    
+}

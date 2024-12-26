@@ -72,7 +72,9 @@ function App() {
           </Routes>
         </BrowserRouter>
       }
-
+    <footer>
+        <div className="footer">&forall; &copy; g.phyzy@gmail.com</div>
+    </footer>
     </div>
   );
 }
