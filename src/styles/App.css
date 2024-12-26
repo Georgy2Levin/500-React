@@ -1,6 +1,6 @@
 .App {
-    max-height: 90vh;
-    overflow-y: scroll;
+    height: 92vh;    
+    overflow-y: hidden;
 }
 .top-container {
     margin-top: 1vh; 
@@ -11,6 +11,8 @@
 }
 .details-image {
     width: 90vw;
+    margin: 12px;
+    margin-bottom: 8px;
 }
 .button-list-buttons-div {
     order: 1;
@@ -33,9 +35,10 @@ button {
     border-color: darkslateblue;
 }
 .details-container {
+    width: 90vw;
     position: relative;
     text-align: center;
-    order: 2;
+    /* order: 2; */
 }
 .span-title {
     color: darkslateblue;
@@ -54,11 +57,12 @@ button {
 }
 .miniatures {    
     width: 22vw;
-    margin: 1vw;
+    margin: 10px;
+    margin-bottom: 6px;
     border-radius: 2px;
 }
 .miniatures:hover, button:not(.active):hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor:pointer;
 }
 .about {
@@ -105,6 +109,13 @@ button {
 .error-class {
     color: red;
 }
+.miniatures-class {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 90vh;
+    overflow-y: scroll;
+}
 @media (min-width: 560px) {
     .top-container {
         display: flex;
@@ -112,13 +123,14 @@ button {
         max-height: 50vh;
      }
     .details-container {
-        order: 1; 
+        width: 580px;
        
     }
     .details-image { 
         width: 533px;
-        /* max-height: 50vh; */
-        width: 100%;
+        margin: 12px;
+        margin-bottom: 8px;
+
     }
     .button-list-buttons-div {
         order: 2;
@@ -139,8 +151,9 @@ button {
     }
     .miniatures {
         width: 12vw;
-        margin: 1vw;
         border-radius: 4px;
+        margin: 12px;
+        margin-bottom: 8px;
     }
     .icon-class {
         font-size: 40px !important;
@@ -148,7 +161,7 @@ button {
     }
     .icon-class:hover {
         color: lightblue;
-        /* background-color: blue; */
+
         cursor: pointer;
       }
 }

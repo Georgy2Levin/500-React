@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react';
-import './styles/idrawso.css';
+import './styles/App.css';
 import { PlaceNameFotosType, PlaceKeyPlaceNameType, PlaceKeyPlaceNameFotosType } from 'model/PlaceFotos';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GalleryPage } from './components/pages/GalleryPage';
@@ -71,10 +71,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      }
-    <footer>
-        <div className="footer">&forall; &copy; g.phyzy@gmail.com</div>
-    </footer>
+      }    
     </div>
   );
 }
