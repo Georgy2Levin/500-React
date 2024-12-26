@@ -21,7 +21,7 @@ export const GalleryScreen: React.FC<Props> = ({foto_full_path}) => {
                     <ImageNotSupportedOutlinedIcon className="button-close" onClick={() => showDetails(false)} />
                     <img src={foto_full_path} className="details-image" />
                 </> :
-                <ImageSearchOutlinedIcon onClick={() => showDetails(true)} />}
+                <ImageSearchOutlinedIcon onClick={() => showDetails(true)} className="icon-class"/>}
         </div>
     )
 }

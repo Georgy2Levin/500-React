@@ -89,6 +89,19 @@ button {
     top: 0px;
     right: 0px;
 }
+.button-close:hover {
+    color: lightblue;
+    background-color: orchid;
+    cursor: pointer;
+}
+.icon-class {
+    font-size: 40px !important;
+    color: orchid;
+}
+.icon-class:hover {
+    color: lightblue;
+    cursor: pointer;
+}
 .error-class {
     color: red;
 }
@@ -129,6 +142,15 @@ button {
         margin: 1vw;
         border-radius: 4px;
     }
+    .icon-class {
+        font-size: 40px !important;
+        color: orchid;
+    }
+    .icon-class:hover {
+        color: lightblue;
+        /* background-color: blue; */
+        cursor: pointer;
+      }
 }
 @media (min-width: 900px){
     .details-image {

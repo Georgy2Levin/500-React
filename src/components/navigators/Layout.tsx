@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom"
 import { PlaceKeyPlaceNameType } from "model/PlaceFotos"
 import { Drawer, List, ListItem } from "@mui/material";
 import { ReactNode, useState } from "react";
-import ArtTrackIcon from '@mui/icons-material/ArtTrack';
+import ArtTrackOutlinedIcon from '@mui/icons-material/ArtTrackOutlined';
 
 type Props = {
     placesKeysPlacesNames: PlaceKeyPlaceNameType[];
@@ -25,7 +25,7 @@ export const Layout: React.FC<Props> = ({ placesKeysPlacesNames }) => {
     return (
         <div className="layout-class">
             <div className="layout-menu">
-                <ArtTrackIcon onClick={toggleOpen} />
+                <ArtTrackOutlinedIcon onClick={toggleOpen} className="icon-class"/>
                 <Drawer open={flOpen} onClose={toggleOpen}>
                     <List>
                         {getListItem()}
