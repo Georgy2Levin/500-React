@@ -52,9 +52,8 @@
 }
 .miniatures {    
     width: 22vw;
-    margin: 10px;
-    margin-bottom: 6px;
-    border-radius: 2px;
+    margin: 6px;
+    margin-bottom: 2px;
 }
 .miniatures:hover, button:not(.active):hover {
     transform: scale(1.05);
@@ -103,11 +102,22 @@
     justify-content: center;
     max-height: 80vh;
     overflow-y: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+.miniatures-class::-webkit-scrollbar {
+    display: none;
 }
 .all-galleries-class {
     max-height: 90vh;
     overflow-y: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
 }
+.all-galleries-class::-webkit-scrollbar {
+    display: none;
+}
+
 @media (min-width: 560px) {
 
     .details-image { 
@@ -118,7 +128,6 @@
     }
     .miniatures {
         width: 12vw;
-        border-radius: 4px;
         margin: 12px;
         margin-bottom: 8px;
     }
