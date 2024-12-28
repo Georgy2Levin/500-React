@@ -44,12 +44,16 @@ export const SingleGallery: React.FC<Props> = ({ placeName, fotos, setCurrentFot
     }
 
     function fillSection(): JSX.Element {
-        return <>
-            <div className="span-section"><span className="span-title">{placeName}</span></div>
+        return <div className="gallery-class">
+            <div className="span-section flex-center">
+                <span className="span-footage">shooting&nbsp;</span>
+                <span className="span-title">{placeName}</span>
+                <span className="span-footage">&nbsp;location</span>
+            </div>
             <div className="miniatures-class">
                 {getMiniatures()}
             </div>
-        </>
+        </div>
     }
 
     return (

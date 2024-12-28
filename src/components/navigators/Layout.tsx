@@ -1,8 +1,9 @@
 import { Link, Outlet } from "react-router-dom"
 import { PlaceKeyPlaceNameType } from "model/PlaceFotos"
 import { Drawer, List, ListItem } from "@mui/material";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import ArtTrackOutlinedIcon from '@mui/icons-material/ArtTrackOutlined';
+
 
 type Props = {
     placesKeysPlacesNames: PlaceKeyPlaceNameType[];
@@ -12,9 +13,9 @@ export const Layout: React.FC<Props> = ({ placesKeysPlacesNames }) => {
 
     const [flOpen, setFlOpen] = useState<boolean>(false)
 
-    function getListItem(): ReactNode {
+    function getListItem(): JSX.Element[] {
         return placesKeysPlacesNames.map(({ placeKey, placeName }) => (
-            <ListItem component={Link} to={`/${placeKey}`} key={placeKey}>{placeName}</ListItem>
+            <ListItem component={Link} to={`/${placeKey}`} key={placeKey} className="list-item-class">{placeName}</ListItem>
         ));
     }
 

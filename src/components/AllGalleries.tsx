@@ -14,8 +14,8 @@ export const AllGalleries = ({ placesFotos, setCurrentFoto }: Props): JSX.Elemen
     }
 
     return (
-        <>
+        <div className="all-galleries-class">
             {getGalleries()}
-        </>
+        </div>
     )
 }

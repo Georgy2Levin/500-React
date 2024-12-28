@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ImageSearchOutlinedIcon from '@mui/icons-material/ImageSearchOutlined';
 import ImageNotSupportedOutlinedIcon from '@mui/icons-material/ImageNotSupportedOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Paper } from "@mui/material";
 
 type Props = {
@@ -16,25 +17,25 @@ export const GalleryScreen: React.FC<Props> = ({foto_full_path}) => {
     }
 
     return (
-        <div className="details-container">
+        <div className="top-container flex-center">
             {isVisible ?
-                <>
-                    <ImageNotSupportedOutlinedIcon className="button-close" onClick={() => showDetails(false)} />
+                <div className="details-container">
+                    <CloseOutlinedIcon className="button-close" onClick={() => showDetails(false)} />
                     <Paper                
-                        elevation={8} // Adjust the shadow level as needed
+                        elevation={8}
                         sx={{
-                            borderRadius: 1, // Optional: add border radius
-                            overflow: 'hidden', // Ensure the image fits within the Paper component
+                            borderRadius: 1, 
+                            overflow: 'hidden',
                             padding: 0,
                             margin: 1,
                             '&:hover': {
-                                boxShadow: 12, // Increase shadow on hover
+                                boxShadow: 12,
                             },
                         }}
                     >
                         <img src={foto_full_path} className="details-image" />
                     </Paper>
-                </> :
+                </div> :
                 <ImageSearchOutlinedIcon onClick={() => showDetails(true)} className="icon-class"/>}
         </div>
     )

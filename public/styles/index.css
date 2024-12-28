@@ -10,18 +10,28 @@ html, body {
     background-color:beige;
     margin: 0px;
 }
-.logo {
-    font-size: 1.5em;
+body {
+    position: relative;
+    background-color: darkslateblue;
+}
+header {    
     color: lightblue;
     background-color: darkslateblue;
-    display: block;
-    text-align: center;
+    height: 5vh;
+    font-size: 4vh;
 }
 footer {
     color:  orchid;
-    background-color: darkslateblue;
-    text-align: center;
+    background-color: lightblue;
     width: 100%;
     position: absolute;
-    bottom: 0px;    
+    bottom: 0px;  
+    height: 3vh;  
+    font-size: 2vh;    
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
