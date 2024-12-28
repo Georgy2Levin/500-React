@@ -6,21 +6,21 @@ import { Paper } from "@mui/material";
 
 type Props = {
     foto_full_path: string;
+    toogleVisible: boolean;
+    setToogleVisible: (toogle: boolean) => void;
 }
 
-export const GalleryScreen: React.FC<Props> = ({foto_full_path}) => {
+export const GalleryScreen: React.FC<Props> = ({foto_full_path, toogleVisible, setToogleVisible}) => {
 
-    const [isVisible, setIsVisible] = useState<boolean>(true);
-
-    function showDetails(fl: boolean) {
-        setIsVisible(fl);
-    }
+    // function showDetails(fl: boolean) {
+    //     toogleVisible = fl;
+    // }
 
     return (
         <div className="top-container flex-center">
-            {isVisible ?
+            {toogleVisible ?
                 <div className="details-container">
-                    <CloseOutlinedIcon className="button-close" onClick={() => showDetails(false)} />
+                    <CloseOutlinedIcon className="button-close" onClick={() => setToogleVisible(false)} />
                     <Paper                
                         elevation={8}
                         sx={{
@@ -36,7 +36,7 @@ export const GalleryScreen: React.FC<Props> = ({foto_full_path}) => {
                         <img src={foto_full_path} className="details-image" />
                     </Paper>
                 </div> :
-                <ImageSearchOutlinedIcon onClick={() => showDetails(true)} className="icon-class"/>}
+                <ImageSearchOutlinedIcon onClick={() => setToogleVisible(true)} className="icon-class"/>}
         </div>
     )
 }

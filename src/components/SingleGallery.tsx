@@ -8,12 +8,14 @@ const sPrefix = config.dir500s;
 
 type Props = PlaceNameFotosType & {
     setCurrentFoto: (name: string) => void;
+    setToogleVisible: (toogle: boolean) => void;
 }
 
-export const SingleGallery: React.FC<Props> = ({ placeName, fotos, setCurrentFoto }) => {
+export const SingleGallery: React.FC<Props> = ({ placeName, fotos, setCurrentFoto, setToogleVisible }) => {
 
     function setFoto(name: string) {
         setCurrentFoto(name);
+        setToogleVisible(true);
     }
 
     function getMiniatures(): JSX.Element[] {
@@ -24,14 +26,14 @@ export const SingleGallery: React.FC<Props> = ({ placeName, fotos, setCurrentFot
             return (
                 <Paper
                     key={n}
-                    elevation={8} // Adjust the shadow level as needed
+                    elevation={8} 
                     sx={{
-                        borderRadius: 1, // Optional: add border radius
-                        overflow: 'hidden', // Ensure the image fits within the Paper component
+                        borderRadius: 1,
+                        overflow: 'hidden',
                         padding: 0,
                         margin: 1,
                         '&:hover': {
-                            boxShadow: 12, // Increase shadow on hover
+                            boxShadow: 12,
                         },
                     }}
                 >

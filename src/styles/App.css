@@ -19,24 +19,14 @@
     background-color: darkslateblue;
     color: lightpink;
 }
-
-.gallery-page-class {
-}
-.top-container {
-}
-
 .details-container{
     position: relative; 
 }
 .details-image {
-    width: 90vw;
+    width: 86vw;
     margin: 12px;
     margin-bottom: 8px;
 }
-
-.span-section {
-}
-
 .span-footage {
     color: darkslateblue;
 }
@@ -66,18 +56,16 @@
     color: darkslateblue;
     font-size: 2vh;
 }
-
 .me {
     border-radius: 50%;
     margin: 4vh;
 }
-
 .button-close  {
     font-size: 1.5vh;
     background-color: lightpink;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 2px;
+    right: 2px;
 }
 .button-close:hover {
     color: lightblue;
@@ -117,9 +105,7 @@
 .all-galleries-class::-webkit-scrollbar {
     display: none;
 }
-
 @media (min-width: 560px) {
-
     .details-image { 
         width: 533px;
     } 

@@ -8,12 +8,14 @@ type Props = {
 }
 
 export const GalleriesPage: React.FC<Props> = ({placesFotos}) => {
-    const [currentFoto, setCurrentFoto] = useState<string>();
+    const [currentFoto, setCurrentFoto] = useState<string>('');
+    const [toogleVisible, setToogleVisible] = useState<boolean>(false);
 
     return (
         <>
-            {currentFoto && <GalleryScreen foto_full_path={currentFoto} />}
-            <AllGalleries placesFotos={placesFotos} setCurrentFoto={setCurrentFoto} />
+            {currentFoto && <GalleryScreen foto_full_path={currentFoto} 
+                toogleVisible={toogleVisible} setToogleVisible={setToogleVisible}/>}
+            <AllGalleries placesFotos={placesFotos} setCurrentFoto={setCurrentFoto} setToogleVisible={setToogleVisible} />
         </>
     )
 }

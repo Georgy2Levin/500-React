@@ -9,6 +9,7 @@ export const Home = ({ fotos }: Props): JSX.Element => {
     const dir500 = config.dir500;
     const length = fotos.length;
     const [currentFoto, setCurrentFoto] = useState<string>(`${dir500}224.jpg`);
+    const [toogleVisible, setToogleVisible] = useState<boolean>(true);
 
     function getRandomFoto() {
         const randomNumber = Math.floor(Math.random() * length);
@@ -23,7 +24,8 @@ export const Home = ({ fotos }: Props): JSX.Element => {
 
     return (
         <>
-            <GalleryScreen foto_full_path={currentFoto} />
+            <GalleryScreen foto_full_path={currentFoto} 
+                toogleVisible={toogleVisible} setToogleVisible={setToogleVisible} />
             <div className="about">
                 <span className="about-span">
                     I had the telephoto lens <i>Samyang 500mm f/6.3 Mirror</i> for several years.<br />
