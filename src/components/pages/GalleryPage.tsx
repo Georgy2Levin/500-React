@@ -1,11 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { PlaceNameFotosType } from "model/PlaceFotos"
 import { GalleryScreen } from "../GalleryScreen"
 import { SingleGallery } from "../SingleGallery"
 
 export const GalleryPage: React.FC<PlaceNameFotosType> = ({ placeName, fotos }) => {
-    const [currentFoto, setCurrentFoto] = useState<string>();
+    const [currentFoto, setCurrentFoto] = useState<string>('');
     const [toogleVisible, setToogleVisible] = useState<boolean>(false);
+
+    useEffect(() => {
+        setToogleVisible(false);
+    }, [placeName]);
 
     return (
         <div className="gallery-page-class">

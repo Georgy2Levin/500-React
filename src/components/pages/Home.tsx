@@ -36,6 +36,12 @@ export const Home = ({ fotos }: Props): JSX.Element => {
                 <div>
                     <img src="/assets/me.jpg" className="me" />
                 </div>
+                <span className="about-span">
+                    To navigate, click on the menu icon in the upper left corner.<br />
+                    The names indicate where the shooting took place.<br />
+                    <br />
+                    (c) 2024<br />
+                </span>
             </div>
         </>
 

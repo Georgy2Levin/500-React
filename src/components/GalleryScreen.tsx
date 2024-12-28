@@ -12,10 +12,6 @@ type Props = {
 
 export const GalleryScreen: React.FC<Props> = ({foto_full_path, toogleVisible, setToogleVisible}) => {
 
-    // function showDetails(fl: boolean) {
-    //     toogleVisible = fl;
-    // }
-
     return (
         <div className="top-container flex-center">
             {toogleVisible ?
