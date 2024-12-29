@@ -9,6 +9,7 @@ export const GalleryPage: React.FC<PlaceNameFotosType> = ({ placeName, fotos }) 
 
     useEffect(() => {
         setToogleVisible(false);
+        setCurrentFoto('');
     }, [placeName]);
 
     return (

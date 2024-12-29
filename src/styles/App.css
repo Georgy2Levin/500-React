@@ -61,11 +61,11 @@
     margin: 4vh;
 }
 .button-close  {
-    font-size: 1.5vh;
+    font-size: 16px !important;
     background-color: lightpink;
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 12px;
+    right: 12px;
 }
 .button-close:hover {
     color: lightblue;
@@ -122,6 +122,9 @@
     }
     .icon-class {
         font-size: 40px !important;
+    }
+    .button-close  {
+        font-size: 20px !important;
     }
 }
    
