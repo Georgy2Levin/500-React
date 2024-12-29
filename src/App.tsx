@@ -67,7 +67,7 @@ function App() {
             <Route path='/' element={<Layout placesKeysPlacesNames={placesKeysPlacesNames} />}>
               <Route index element={<Home fotos={fotos} />} />
               {getRoutes()}
-              <Route path='all' element={<GalleriesPage placesFotos={placesNamesFotos} />} />
+              <Route path='all' element={<GalleryPage placeName='Moscow' fotos={fotos} />} />              
             </Route>
           </Routes>
         </BrowserRouter>
