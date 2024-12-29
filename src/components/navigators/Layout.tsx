@@ -1,8 +1,12 @@
 import { Link, Outlet } from "react-router-dom"
 import { PlaceKeyPlaceNameType } from "model/PlaceFotos"
-import { Drawer, List, ListItem } from "@mui/material";
+import { Divider, Drawer, List, ListItem } from "@mui/material";
 import { useState } from "react";
 import ArtTrackOutlinedIcon from '@mui/icons-material/ArtTrackOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import MyLocationOutlinedIcon from '@mui/icons-material/MyLocationOutlined';
 
 
 type Props = {
@@ -15,7 +19,12 @@ export const Layout: React.FC<Props> = ({ placesKeysPlacesNames }) => {
 
     function getListItem(): JSX.Element[] {
         return placesKeysPlacesNames.map(({ placeKey, placeName }) => (
-            <ListItem component={Link} to={`/${placeKey}`} key={placeKey} className="list-item-class">{placeName}</ListItem>
+            <ListItem component={Link} to={`/${placeKey}`} key={placeKey} className="list-item-class">
+                
+                <MyLocationOutlinedIcon className="small-icon" />
+                &emsp;
+                {placeName}
+            </ListItem>
         ));
     }
 
@@ -29,8 +38,19 @@ export const Layout: React.FC<Props> = ({ placesKeysPlacesNames }) => {
                 <ArtTrackOutlinedIcon onClick={toggleOpen} className="icon-class"/>
                 <Drawer open={flOpen} onClose={toggleOpen}>
                     <List>
+                        <ListItem component={Link} to="/" className="list-item-class">
+                            <HomeOutlinedIcon />
+                            &nbsp;
+                            Home
+                        </ListItem>
+                        <Divider className="divider-class" />
                         {getListItem()}
-                        <ListItem component={Link} to="/all">Show all</ListItem>
+                        <Divider className="divider-class"/>
+                        <ListItem component={Link} to="/all" className="list-item-class">
+                            <CollectionsOutlinedIcon />
+                            &nbsp;
+                            Show all
+                        </ListItem>
                     </List>
                 </Drawer>
             </div>
