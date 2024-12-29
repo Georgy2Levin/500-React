@@ -1,6 +1,4 @@
-import { useState } from "react";
 import ImageSearchOutlinedIcon from '@mui/icons-material/ImageSearchOutlined';
-import ImageNotSupportedOutlinedIcon from '@mui/icons-material/ImageNotSupportedOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Paper } from "@mui/material";
 

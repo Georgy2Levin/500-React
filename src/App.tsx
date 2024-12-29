@@ -1,16 +1,14 @@
 import { ReactNode, useEffect, useState } from 'react';
 import './styles/App.css';
-import { PlaceNameFotosType, PlaceKeyPlaceNameType, PlaceKeyPlaceNameFotosType } from 'model/PlaceFotos';
+import { PlaceKeyPlaceNameType, PlaceKeyPlaceNameFotosType } from 'model/PlaceFotos';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GalleryPage } from './components/pages/GalleryPage';
 import { Layout } from './components/navigators/Layout';
 import { Home } from './components/pages/Home';
-import { GalleriesPage } from './components/pages/GalleriesPage';
 import config from 'config/common-config.json'
 
 
 function App() {
-  const [placesNamesFotos, setPlacesNamesFotos] = useState<PlaceNameFotosType[]>([]);
   const [keysNamesFotos, setKeysNamesFotos] = useState<PlaceKeyPlaceNameFotosType[]>([]);
   const [placesKeysPlacesNames, setPlacesKeysPlacesNames] = useState<PlaceKeyPlaceNameType[]>([]);
   const [fotos, setFotos] = useState<string[]>([]);
@@ -26,7 +24,6 @@ function App() {
           throw new Error(`HTTP error! status: ${awaitFetch.status}`);
         }
         const awaitJson = await awaitFetch.json();
-        let collectorPlacesFotos: PlaceNameFotosType[] = [];
         let collectorKeysNamesFotos: PlaceKeyPlaceNameFotosType[] = [];
         let collectorKeysNames: PlaceKeyPlaceNameType[] = [];
         let collectorFotos: string[] = [];        
@@ -34,13 +31,11 @@ function App() {
         for (const key in awaitJson) {
           const name = key.replace("-s-", "'s-").replace(/-/g, " ");
           const fotos = awaitJson[key];
-          collectorPlacesFotos.push({ placeName: name, fotos });
           collectorKeysNamesFotos.push({ placeKey: key, placeName: name, fotos });
           collectorKeysNames.push({ placeKey: key, placeName: name });
           collectorFotos.push(...fotos);
         }
 
-        setPlacesNamesFotos(collectorPlacesFotos);
         setKeysNamesFotos(collectorKeysNamesFotos);
         setPlacesKeysPlacesNames(collectorKeysNames);
         setFotos(collectorFotos);

@@ -1,6 +1,6 @@
 import { PlaceNameFotosType } from "model/PlaceFotos"
 import config from "config/common-config.json"
-import { Box, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 
 
 const prefix = config.dir500;
